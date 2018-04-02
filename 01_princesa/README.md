@@ -1,7 +1,7 @@
 # 01_princesa
 
 * o que você fez?
-  * h--
+  * --
 * Com quem e como você fez?
   * --
 * O que aprendeu e sabe fazer?
