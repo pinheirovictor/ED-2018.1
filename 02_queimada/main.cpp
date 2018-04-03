@@ -66,7 +66,7 @@ int queimar(int l,int c, char mat[linha][coluna],int nivel){
     if(c < 0 or c >= coluna)
         return 0;
     if(mat[l][c] == '#'){
-        cont = 1;
+        int cont = 1;
         mat[l][c] = '0' + nivel;
         limparTela();
         mostrar(mat);
