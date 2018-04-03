@@ -38,6 +38,7 @@ int main(){
 
     mostarLista(participantes);
 
+    
     while(participantes.front() != escolhido){
 
         participantes.push_back(participantes.front());
