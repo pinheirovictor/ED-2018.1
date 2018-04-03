@@ -4,8 +4,8 @@
 using namespace std;
 
 //metodo prencher a lista
-void preencher(list<int>& participantes,int quantidade){
-    for(int i = 0; i < quantidade; i++){
+void preencherLista(list<int>& participantes,int qtd){
+    for(int i = 0; i < qtd; i++){
         participantes.push_back(i + 1);
     }
 }
@@ -23,18 +23,18 @@ int main(){
     int escolhido = 0;
     int salto = 0;
 
-    cout << "Numero de participantes: ";
+    cout << "Numero total de participantes: ";
     cin >> qtd;
 
-    cout << "Participente inicial: ";
+    cout << "Participante inicial: ";
     cin >> escolhido;
 
-    cout << "Número de slatos";
+    cout << "Número de saltos: ";
     cin >> salto;
 
     list<int> participantes;
 
-    preencher(participantes,qtd);
+    preencherLista(participantes,qtd);
 
     mostarLista(participantes);
 
@@ -51,7 +51,7 @@ int main(){
             salto--;
         }
             participantes.pop_front();
-            imprimirLista(participantes);
+            mostarLista(participantes);
     }
     return 0;
 }
