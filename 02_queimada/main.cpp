@@ -98,7 +98,7 @@ int main(){
 
     int qtd = linha * coluna * 1.5;
 
-    for(int sorteio = 0; sorteio < qtd; sorteio++){
+    for(int sortear = 0; sortear < qtd; sortear++){
         mat[rand() % linha][rand() % coluna] = '#';
     }
 
