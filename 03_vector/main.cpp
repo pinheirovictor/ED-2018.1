@@ -57,15 +57,13 @@ struct Vetor{
         return this->_capacidade;
     }
 
-    void reserve(int novaCapacidade){
-        if(this->_capacidade < novaCapacidade)
+    void reserve(int novacapacidade){
+        if(this->_capacidade > novacapacidade)
             return;
-        int * elementosNovos = new int[this->_size * 2];
-        for(int i = 0; i < this->_size; i++){
-            elementosNovos[i] = this->_data[i];
-        }
-        this->_data = elementosNovos;
-    }
+        _capacidade += novacapacidade;
+        this->_data = new int[_capacidade];
+       }
+    
 };
 
 

@@ -66,7 +66,7 @@ int queimar(int l,int c, char mat[linha][coluna],int nivel){
     if(c < 0 or c >= coluna)
         return 0;
     if(mat[l][c] == '#'){
-        cont = 1;
+        int cont = 1;
         mat[l][c] = '0' + nivel;
         limparTela();
         mostrar(mat);
@@ -98,7 +98,7 @@ int main(){
 
     int qtd = linha * coluna * 1.5;
 
-    for(int sorteio = 0; sorteio < qtd; sorteio++){
+    for(int sortear = 0; sortear < qtd; sortear++){
         mat[rand() % linha][rand() % coluna] = '#';
     }
 
