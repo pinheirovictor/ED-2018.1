@@ -3,7 +3,7 @@
 
 [![](https://qxcodeed.github.io/pages/matrizes/figura.png)](https://qxcodeed.github.io/pages/matrizes.html)
 
-## Tipo PaR
+## Tipo Par
 - Métodos e Atributos
 
 ```c++
