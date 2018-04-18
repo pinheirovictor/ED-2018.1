@@ -21,7 +21,7 @@ const char ABATIDO = 'm';
 void showMat(matchar& mat, vector<Par> pilha, Par inicio, Par fim){
     mat_draw(mat);
     for(Par par : pilha)
-        mat_focus(par, 'c');
+        mat_focus(par, 'b');
     if(pilha.size() > 0)
         mat_focus(pilha.back(), 'k');
     mat_focus(inicio, 'g');
@@ -260,7 +260,7 @@ void criarLab(matchar& mat, vector<Par> pilha){
 int main(){
     srand(time(NULL));
     vector<Par> pilha;
-    matchar mat(20, 35, PAREDE);
+    matchar mat(10, 15, PAREDE);
     //furar(mat, Par(1, 1));//chama a função recursiva
     criarLab(mat, pilha);
     mat_draw(mat);
