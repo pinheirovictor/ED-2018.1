@@ -2,7 +2,7 @@
 ## Relatório
 
 *  que você fez?
-	* Fiz novamente o codigo totalmente do zero, em seguida concertei o metodo push_back iterativo que tinha um peuqeno erro, na aula passada eu tinha feito o metodo somar recursivo, porem estava errado, refiz o mesmo e corrigi o erro. Fiz o metodo push_back recursivo, fiquei em duvida pedi ajuda a um colega e consegui fazer. Fiquei com bastante duvida no metodo remover iterativo, pensei bastante mas nao consegui fazer, pedi ajuda a uns colegas e consegui realizar, em seguida fiz o metodo inserirOrdenado recursivo. Fiz os metodos arranca venta e arranca rabo, o arranca rabo o prefessor fez em aula, pra fazer arranca venta era só se basear no arranca rabo.
+	* Fiz novamente o codigo totalmente do zero, em seguida concertei o metodo push_back iterativo que tinha um peuqeno erro, na aula passada eu tinha feito o metodo somar recursivo, porem estava errado, refiz o mesmo e corrigi o erro. Fiz o metodo push_back recursivo, fiquei em duvida pedi ajuda a um colega e consegui fazer. Fiz os metodos arranca venta e arranca rabo, o arranca rabo o prefessor fez em aula, pra fazer arranca venta era só se basear no arranca rabo.
     
 * Com quem e como você fez?
 	* Fiz inicialmente sozinho, depois me reuni com uns colgeas tiramos duvidas e conseguimos fazer a atividade.
