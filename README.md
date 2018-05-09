@@ -9,3 +9,7 @@
 [03_vector](https://github.com/pinheirovictor/ED_2018.1/tree/master/03_vector)
 
 [04_fractais](https://github.com/pinheirovictor/ED_2018.1/tree/master/04_fractais)
+
+[05_lab_pilha](https://github.com/pinheirovictor/ED_2018.1/tree/master/05_lab_pilha)
+
+[06_lista_ligada](https://github.com/pinheirovictor/ED_2018.1/tree/master/06_lista_ligada)
