@@ -1,0 +1,140 @@
+<!doctype html>
+<html
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="/css/style.css">
+ -->
+<link rel="icon" type="imagem/png" href="/img/download.png" />
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<title>Outback Steakhouse</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+		<div class="container">
+			<a class="navbar-brand h1 mb-0" href="/outback/paginainicial"><img
+				src="/img/logomarcasite.png" width="120px" height="50px"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+
+					<a sec:authorize="!isAuthenticated()"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/paginainicial">Home</a>
+					<a sec:authorize="hasRole('ROLE_USER')"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/paginainicial">Home</a>
+					<a sec:authorize="hasRole('ROLE_ADMIN')"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/paginainicial">Home</a>
+
+					<a sec:authorize="!isAuthenticated()"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/destaques">Destaques</a>
+					<a sec:authorize="hasRole('ROLE_USER')"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/destaques">Destaques</a>
+
+					<a class="nav-item nav-link ml-4 mr-4" href="/outback/cardapio">Cardápio</a>
+
+					<a sec:authorize="!isAuthenticated()"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/quemsomos">QuemSomos</a>
+
+					<a sec:authorize="hasRole('ROLE_USER')"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/vercarrinho">Carrinho
+						de Compras</a> <a sec:authorize="!isAuthenticated()"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/faleconosco">Fale
+						Conosco</a> <a sec:authorize="hasRole('ROLE_USER')"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/listarpedidos">Histórico</a>
+					<a sec:authorize="!isAuthenticated()"
+						class="nav-item nav-link ml-4 mr-4"
+						href="/outback/cadastrarcliente">Cadastre-se</a> <a
+						sec:authorize="hasRole('ROLE_USER')"
+						class="nav-item nav-link ml-4 mr-4"
+						href="/outback/cadastrarcliente">Cadastre-se</a> <a
+						sec:authorize="hasRole('ROLE_ADMIN')"
+						class="nav-item nav-link ml-4 mr-4"
+						href="/outback/cadastrarpratos">Cadastar Pratos</a> <a
+						sec:authorize="hasRole('ROLE_ADMIN')"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/listarcliente">Listar
+						Clientes</a> <a sec:authorize="hasRole('ROLE_ADMIN')"
+						class="nav-item nav-link ml-4 mr-4" href="/outback/listarpratos">Listar
+						Produtos</a> <a sec:authorize="!isAuthenticated()"
+						class="btn btn-danger ml-9" href="/outback/login">Entrar</a> <a
+						sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-danger ml-9"
+						href="/logout">Sair</a> <a sec:authorize="hasRole('ROLE_USER')"
+						class="btn btn-danger ml-9" href="/logout">Sair</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container my-5">
+		<center>
+			<h1>PRATOS DO DIA</h1>
+			<br>
+			<div class="row justify-content-center">
+				<div th:each="prato : ${listaDePratos}" class="card col-sm6 m-2"
+					style="width: 15rem;">
+					<img th:src="@{'/images/' + ${prato.nome} + .png}"
+						class="card-img-top">
+					<div class="card-body">
+						<center>
+							<h5 th:text="${prato.nome}" class="card-title"></h5>
+							<p th:text="'R$ ' + ${ prato.preco} " class="card-text"></p>
+							<a
+								th:href="@{/outback/comprar/{codigo} (codigo = ${prato.codigo})}"
+								sec:authorize="!hasRole('ROLE_ADMIN')" class="btn btn-danger">
+								+ Adicionar ao carrinho</a>
+					</div>
+				</div>
+
+			</div>
+	</div>
+
+	<div class="container">
+		<div class="card my-5">
+			<div class="card-header"></div>
+			<div class="card-body">
+				<blockquote class="blockquote mb-0">
+					<p>Copyright © 2019 Outback Steakhouse</p>
+					<footer class="blockquote-footer">
+						Todos os direitos Reservados <cite title="Source Title">2019</cite>
+						- Desenvolvido por Victor Pinheiro
+					</footer>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</body>
+</html>

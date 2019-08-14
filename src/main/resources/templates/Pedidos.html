@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>Pedidos</title>
+</head>
+<body>
+
+	<header>
+		<h1>Dijsktra Restaurant</h1>
+		<nav class="menu">
+			<ul>
+				<li><a th:href="@{../}">Inicio</a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{../cadastroPrato}">Cadastrar Prato</a></li>
+				<li><a th:href="@{../loginOuCadastro}">Login</a></li>
+			</ul>
+		</nav>
+	</header>
+
+
+	<h2>Pedido atual</h2>
+	<table border="1">
+		<tr>
+			<td>Prato</td>
+			<td>Valor</td>
+			<td>Opção</td>
+		</tr>
+		<tr th:each="prato : ${pedidoAtual.pratos}">
+			<td th:text="${prato.nome}"></td>
+			<td th:text="${prato.valor}"></td>
+			<td><a th:href="@{/pedido/removerPrato/{id}(id = ${prato.id})}">Remover</a></td>
+		</tr>
+		<tr>
+			<td th:text="${pedidoAtual.calcularValor()}"></td>
+		</tr>
+	</table>
+	<br>
+	<form action="fechar" method="POST">
+		<label>Informe o endereço: </label>
+		<input name="endereco" > <br><br>
+		<input type="submit" value="Fechar pedido atual">
+	</form>
+	<br>
+	<br>
+	<h2>Outros Pedidos</h2>
+	<br>
+	<table border="1" th:each="pedido : ${pedidos}">
+		<tr>
+			<td>Prato</td>
+			<td>Valor</td>
+		</tr>
+		<tr th:each="pratoPassado : ${pedido.pratos}">
+			<td th:text="${pratoPassado.nome}"></td>
+			<td th:text="${pratoPassado.valor}"></td>
+		</tr>
+		<tr>
+			<td th:text="'Total: ' + ${pedido.calcularValor()}"></td>
+			<td th:text="'Endereco: ' + ${pedido.endereco}"></td>
+		</tr>
+		<span>------------------------------------------------------</span>
+	</table>
+</body>
+</html>

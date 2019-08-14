@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+body, html{
+	height: 100%;
+}
+
+.container-fluid{
+	height: 100%;
+	background-color: #F5F3F4;
+}
+
+
+#img-logo{
+	max-width: 40%;
+}
+
+.navbar{
+	background-color: #F5F3F4E6;
+}
+
+#fundo{
+	background-image: url(/img/fundo.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.content{
+	height: 100%;
+	background-color: #F5F3F4E6;
+}
+

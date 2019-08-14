@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Historico</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">SamuFoods</a>
+  <a class="btn btn-secondary" href="/pedido/listar"> Pedido </a>
+</nav>
+
+	<div class="container col-12">
+		<h1 style="text-align:center;">Historico de Pedidos</h1>
+		
+		<table class="table table-dark table-striped tablePratos table-bordered table-hover table-responsive-sm">
+			<thead>
+				<tr>
+					<th scope="col">Codigo</th>
+					<th scope="col">Endereco</th>
+					<th scope="col">Valor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pedido : ${historicoPedidos}">
+					<td th:text="${pedido.codigoPedido}"></td>
+					<td th:text="${pedido.enderecoPedido}"></td>
+					<td th:text="${pedido.valorTotal}"></td> 
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
